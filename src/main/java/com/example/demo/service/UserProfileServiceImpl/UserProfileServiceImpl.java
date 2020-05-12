@@ -33,11 +33,10 @@ public class UserProfileServiceImpl implements UserProfileService {
         this.emailValidator = emailValidator;
     }
 
-
     @Override
     public UserProfileResponseJson createUserProfileFrom(UserProfileCreationData userProfileCreationData) {
 
-        UserProfile newUserProfile = new UserProfile(userProfileCreationData.getFirstName(),userProfileCreationData.getLastName(),userProfileCreationData.getEmailAddress());
+        UserProfile newUserProfile = new UserProfile(userProfileCreationData.getEmailAddress(),userProfileCreationData.getFirstName(),userProfileCreationData.getLastName());
 
         if (!emailValidator.test(userProfileCreationData.getEmailAddress())) {
             throw new ApiRequestException(userProfileCreationData.getEmailAddress() + " is not valid");
@@ -47,16 +46,16 @@ public class UserProfileServiceImpl implements UserProfileService {
             throw new ReplicatedEmailException();
         }
 
-                  UserProfile userProfile =  userProfileRepository.save(newUserProfile);
+        UserProfile userProfile =  userProfileRepository.save(newUserProfile);
 
-                  addAppointmentsToUser(userProfileCreationData.getUserAppointments(), userProfile);
+        addUserAppointmentsToUser(userProfileCreationData.getUserAppointments(), userProfile);
 
-                  return new UserProfileResponseJson(userProfile);
+        return new UserProfileResponseJson(userProfile);
     }
 
 
 
-    private void addAppointmentsToUser(List<UserAppointmentCreationData> userAppointmentCreationData, UserProfile userProfile) {
+    private void addUserAppointmentsToUser(List<UserAppointmentCreationData> userAppointmentCreationData, UserProfile userProfile) {
 
         if (userAppointmentCreationData != null) {
             userAppointmentCreationData.forEach(UserAppointmentDetails -> {
@@ -69,6 +68,7 @@ public class UserProfileServiceImpl implements UserProfileService {
                 userAppointmentRepository.save(newUserAppointment);
 
                 userProfile.addUserAppointment(newUserAppointment);
+
             });
         }
     }

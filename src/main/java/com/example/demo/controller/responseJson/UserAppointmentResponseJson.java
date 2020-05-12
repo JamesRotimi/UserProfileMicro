@@ -2,10 +2,10 @@ package com.example.demo.controller.responseJson;
 
 import com.example.demo.model.UserAppointment;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
+import lombok.Getter;
 
 
-@Data
+@Getter
 public class UserAppointmentResponseJson {
 
     @JsonProperty("roleId")

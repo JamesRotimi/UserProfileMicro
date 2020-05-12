@@ -12,13 +12,13 @@ import static java.util.stream.Collectors.toList;
 public class UserProfileResponseJson {
 
         @JsonProperty
+        private final String emailAddress;
+
+        @JsonProperty
         private final String firstName;
 
         @JsonProperty
         private final String lastName;
-
-        @JsonProperty
-        private final String emailAddress;
 
         @JsonProperty
         private final List<UserAppointmentResponseJson> userAppointments;

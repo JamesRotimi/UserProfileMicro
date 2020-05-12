@@ -7,7 +7,6 @@ import lombok.Builder;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -30,15 +29,14 @@ public class UserProfileCreationData {
 
     @JsonCreator
     public UserProfileCreationData(
+            @JsonProperty("emailAddress") String emailAddress,
             @JsonProperty("firstName") String firstName,
             @JsonProperty("lastName") String lastName,
-            @JsonProperty("emailAddress") String emailAddress,
             @JsonProperty("userAppointments") List<UserAppointmentCreationData> userAppointments) {
 
-
+        this.emailAddress = StringUtils.isBlank(emailAddress) ? emailAddress : emailAddress.toLowerCase();
         this.firstName = firstName;
         this.lastName = lastName;
-        this.emailAddress = StringUtils.isBlank(emailAddress) ? emailAddress : emailAddress.toLowerCase();
         this.userAppointments = userAppointments;
     }
 }
