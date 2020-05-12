@@ -8,6 +8,8 @@ import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 
@@ -16,13 +18,12 @@ import java.util.List;
 public class UserProfileCreationData {
 
 
-    @NotBlank(message = "firstName must not be null or blank")
+    @NotNull
+    @NotEmpty
     private String firstName;
 
-    @NotBlank(message = "LastName must not be null or blank")
     private String lastName;
 
-    @NotBlank(message = "emailAddress must not be null or blank")
     private String emailAddress;
 
     private List<UserAppointmentCreationData> userAppointments;
@@ -31,7 +32,7 @@ public class UserProfileCreationData {
     public UserProfileCreationData(
             @JsonProperty("firstName") String firstName,
             @JsonProperty("lastName") String lastName,
-            @JsonProperty("email") String emailAddress,
+            @JsonProperty("emailAddress") String emailAddress,
             @JsonProperty("userAppointments") List<UserAppointmentCreationData> userAppointments) {
 
 

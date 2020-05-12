@@ -22,7 +22,7 @@ public class UserAppointment {
 
     @Id
     @GeneratedValue(strategy = AUTO )
-    private long AppointmentId;
+    private long appId;
 
     @Column(name = "role_id")
     private long roleId;
