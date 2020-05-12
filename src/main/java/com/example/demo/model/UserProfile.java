@@ -34,7 +34,7 @@ public class UserProfile {
     private String emailAddress;
 
     @Column(name = "first_name")
-    @Size(max = 256)
+    @Size(max = 255)
     private String firstName;
 
     @Column(name = "last_name")
