@@ -19,11 +19,12 @@ public class UserProfileCreationData {
 
     @NotNull
     @NotEmpty
+
+    private String emailAddress;
+
     private String firstName;
 
     private String lastName;
-
-    private String emailAddress;
 
     private List<UserAppointmentCreationData> userAppointments;
 

@@ -23,11 +23,6 @@ public class UserProfileController {
     @Autowired
     protected UserProfileService userProfileService;
 
-    @GetMapping(path = "/hello")
-    public String getHello(){
-        return "Hello";
-    }
-
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     @ResponseBody
