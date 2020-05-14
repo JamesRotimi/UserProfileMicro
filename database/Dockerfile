@@ -1,4 +1,4 @@
-FROM postgres:alpine
+FROM openjdk:8-jdk-alpine
 
 COPY ./init-db.sh /docker-entrypoint-initdb.d/
 

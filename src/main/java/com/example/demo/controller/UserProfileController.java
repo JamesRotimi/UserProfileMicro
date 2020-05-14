@@ -16,7 +16,7 @@ import javax.validation.Valid;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
-@RequestMapping(path = "/up")
+@RequestMapping(path = "/api/v1/")
 @RestController
 public class UserProfileController {
 

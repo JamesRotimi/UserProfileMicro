@@ -11,7 +11,7 @@ docker-compose -v
 2. Spring boot app
 
 Clone the repository:
-git clone https://github.com/OKaluzny/spring-boot-docker-postgres.git
+git clone : https://github.com/JamesRotimi/UserProfileMicro.git
 Build the maven project:
 mvn clean install
 Now run:
@@ -22,17 +22,29 @@ All commands should be run from project root (where docker-compose.yml locates)
 
 Guide for using endpoint the app:
 
-Go to http://localhost:8080/demo/api/automobiles to test and would specify basic authorization a username: user and password: user or username: admin and password: admin
+Go to http://localhost:8080/api/v1/ to test and would specify basic authorization a username: user and password: user or username: admin and password: admin
 
-GET request to /api/automobiles/ returns a list of "automobiles";
-GET request to /api/automobiles/1 returns the "automobile" with ID 1;
-POST request to /api/automobiles/ with a "automobile" object as JSON creates a new "automobile";
-PUT request to /api/automobiles/3 with a "automobile" object as JSON updates the "automobile" with ID 3;
-DELETE request to /api/automobiles/4 deletes the "automobile" with ID 4;
-DELETE request to /api/automobiles/ deletes all the "automobiles".
-or use Swagger API http://localhost:8080/demo/swagger-ui.html
+POST request to /api/v1/ with a "userprofile" object as JSON creates a new "userprofile";
 
-and generation API docks http://localhost:8080/demo/v3/api-docs.yaml
+using client to post Json - Example below:
+
+{
+  "emailAddress": "test@test.com",
+  "firstName": "Jenny",
+  "lastName": "Franicis",
+  "userAppointments": [
+    {
+    "roleId": 3211 , 
+    "roleDescription": "Disk Jockey", 
+    "organisationName": "Choice Fm"
+     }
+     ,{
+    "roleId": 3342, 
+    "roleDescription": "Footie", 
+    "organisationName": "Wembley"
+     }
+  ]
+}
 
 3. Docker control commands
 
