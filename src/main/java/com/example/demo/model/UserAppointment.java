@@ -18,10 +18,11 @@ import static javax.persistence.GenerationType.AUTO;
 @Data
 @NoArgsConstructor
 @Entity(name = "user_appointments")
+@SequenceGenerator(sequenceName = "user_app_id_seq", name = "appIdSequence", allocationSize = 1)
 public class UserAppointment {
 
     @Id
-    @GeneratedValue(strategy = AUTO )
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "appIdSequence")
     private long appId;
 
     @Column(name = "role_id")

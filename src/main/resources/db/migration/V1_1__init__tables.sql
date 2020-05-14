@@ -18,4 +18,8 @@ create table user_appointments(
     constraint user_appointment_pk primary key (app_id)
 );
 
+create sequence user_profile_id_seq start 1 increment 1;
+
+create sequence user_app_id_seq start 1 increment 1;
+
 alter table user_appointments add constraint fk_user_id foreign key (user_profile_id) references user_profile (user_id);
