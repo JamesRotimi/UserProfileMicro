@@ -73,24 +73,5 @@ public class UserProfileServiceImpl implements UserProfileService {
         }
     }
 
-    @Override
-    public List<UserProfile> getUserProfiles() {
-        return null;
-    }
-
-    @Override
-    public List<UserAppointment> getAllUserAppointmentsForUser(long UserId) {
-        return null;
-    }
-
-    @Override
-    public void updateUserProfile(long userId, UserProfile userprofile) {
-
-    }
-
-    @Override
-    public void deleteUserProfile(long userId) {
-
-    }
 
 }

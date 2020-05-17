@@ -61,6 +61,8 @@ public class UserProfileRepositoryTest {
     }
 
 
+
+
     static class Initializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
         @Override
         public void initialize(ConfigurableApplicationContext configurableApplicationContext) {

@@ -54,12 +54,12 @@ public class CreateNewUserProfileTest {
                 .userAppointments(userAppointments)
                 .build();
     }
-
-    @Test
-    public void should_return_400_when_mandatory_fields_are_null_while_creating_new_user_profile() {
-            List<UserAppointmentCreationData> noUserAppointment = new ArrayList<>();
-
-            userProfileCreationDataValidator.validateAppointment(noUserAppointment);
-        }
-    }
+}
+//    @Test
+//    public void should_return_400_when_mandatory_fields_are_null_while_creating_new_user_profile() {
+//            List<UserAppointmentCreationData> noUserAppointment = new ArrayList<>();
+//
+//            userProfileCreationDataValidator.validateAppointment(noUserAppointment);
+//        }
+//    }
 
