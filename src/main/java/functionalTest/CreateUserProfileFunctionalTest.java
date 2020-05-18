@@ -30,7 +30,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = DemoApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-public class CreateUserTest {
+public class CreateUserProfileFunctionalTest {
 
     @ClassRule
     public static PostgreSQLContainer container = FunctionalContainers.getInstance();
@@ -98,12 +98,12 @@ public class CreateUserTest {
                 .path("emailAddress")
                 .equals(emailAddress);
 
-        ArrayList appointmentResponse = response.then()
+        ArrayList userAppointmentResponse = response.then()
                 .assertThat()
                 .extract()
                 .path("userAppointments");
 
-        assertThat(appointmentResponse.size()).isEqualTo(1);
+        assertThat(userAppointmentResponse.size()).isEqualTo(1);
     }
 
     @Test
@@ -124,7 +124,7 @@ public class CreateUserTest {
 
 
     @Test
-    public void cannot_use_existing_email_to_create_new_user_profile() {
+    public void replicated_emailAddress_cannot_create_new_user_profile() {
 
         final String emailAddress =  "test@testing.com";
 
